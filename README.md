@@ -218,9 +218,9 @@ public boolean isCellEditable(int row, int column) {
 
 | Pilar OOP | Class / File yang Menerapkan | Keterangan |
 |---|---|---|
-| Encapsulation | `AkunData.java`, `User.java`, `Nasabah.java`, `Pegawai.java` | Membungkus atribut data menggunakan modifier `private` dan menyediakan fungsi `getter`/`setter` untuk mengontrol akses dan menjaga keamanan data entitas. |
-| Inheritance | `Nasabah.java`, `Pegawai.java` (meng-extends `User.java`) | Mewarisi atribut umum dan fungsi autentikasi dasar dari *superclass* `User` ke *subclass* terkait agar struktur kode lebih rapi dan *reusable*. |
-| Abstraction | `Koneksi.java`, `AutentikasiDAO.java` (dan kelas DAO lainnya) | Menyembunyikan kompleksitas konfigurasi koneksi JDBC, kredensial database, serta detail kueri SQL mentah dari lapisan View atau Proses. |
+| Encapsulation | `AkunData.java`, `User.java` | Membungkus atribut data menggunakan modifier `private` dan menyediakan fungsi `getter`/`setter` untuk mengontrol akses dan menjaga keamanan data entitas. |
+| Inheritance | `Nasabah.java`, `Pegawai.java` | Mewarisi atribut umum dan fungsi autentikasi dasar dari *superclass* `User` ke *subclass* terkait agar struktur kode lebih rapi dan *reusable*. |
+| Abstraction | `Koneksi.java`, `AutentikasiDAO.java` | Menyembunyikan kompleksitas konfigurasi koneksi JDBC, kredensial database, serta detail kueri SQL mentah dari lapisan View atau Proses. |
 | Polymorphism | `TellerView.java`, `TellerView1_2.java` | Menggunakan *Method Overriding* pada method `isCellEditable()` untuk mengubah perilaku komponen tabel GUI sehingga data hanya dapat dibaca (*read-only*). |
 
 ---
