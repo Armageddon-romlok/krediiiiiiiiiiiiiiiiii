@@ -51,19 +51,41 @@
 
 ### 6.3 Penerapan Arsitektur MVC + DAO
 
-> ✏️ *Isi: penjelasan singkat pembagian peran Model, View, Controller, dan DAO pada program.*
+> ✏️ Program ini memisahkan tanggung jawab kode secara terstruktur:
+
+  -Model menyimpan dan merepresentasikan bentuk data (contoh: objek Nasabah).
+  -View menangani tampilan layar (JFrame) dan menerima input dari pengguna.
+  -Proses (Controller) mengatur alur masuknya input, melakukan validasi, dan menjembatani View dengan DAO.
+  -DAO (Data Access Object) memisahkan logika query SQL murni untuk mengambil/menyimpan data ke MySQL.
+
+Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses memanggil DAO untuk eksekusi query -> Data dikembalikan dalam bentuk objek Model -> Layar View diperbarui.
+
 
 ---
+
 
 ## 7. 🧱 Penjelasan Penerapan 4 Pilar OOP
 
 ### 7.1 Encapsulation (Enkapsulasi)
 
 **Konsep:**
-> ✏️ *Isi: penjelasan singkat konsep.*
+> ✏️ Membungkus data (atribut) dan metode dalam satu unit (class) serta menyembunyikan detail internal objek dari modifikasi luar secara langsung menggunakan access modifier private. Akses modifikasi hanya diberikan secara aman melalui metode getter dan setter.
 
-#### 📁 Contoh 1: `NamaClass.java`
-> ✏️ *Isi: potongan kode (blok ```java) dan penjelasan penerapannya.*
+>Encapsulation, Inheritance, Abstraction, Polymorphism, dan Interface. 
+
+#### 📁 Contoh 1: `AkunData.java`
+> ✏️ public class AkunData {
+    private String userId;
+    private String email;
+    private String nama;
+    private String role;
+
+    // Constructor & Getter methods
+    public String getUserId() { return userId; }
+    public String getEmail() { return email; }
+    public String getNama() { return nama; }
+    public String getRole() { return role; }
+}
 
 #### 📁 Contoh 2: `NamaClass.java`
 > ✏️ *Isi: potongan kode dan penjelasan.*
