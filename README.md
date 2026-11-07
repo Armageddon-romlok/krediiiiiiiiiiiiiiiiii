@@ -76,7 +76,7 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
 #### 📁 Contoh 1: `AkunData.java`
 > ✏️Atribut data akun disembunyikan menggunakan modifier private sehingga tidak dapat diubah sembarangan dari luar kelas, dan hanya bisa diakses melalui fungsi getter.
 
-
+```java
     public class AkunData {
     private String userId;
     private String email;
@@ -88,7 +88,7 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
     public String getNama() { return nama; }
     public String getRole() { return role; }
     }
-    
+```
 #### 📁 Contoh 2: `User.java`
 > ✏️ Atribut kredensial dan identitas pengguna seperti password, NIK, dan NIP dienkapsulasi dengan tingkat akses private untuk menjaga keamanan data sensitif aplikasi dari manipulasi luar.
 
