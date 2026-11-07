@@ -104,8 +104,6 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
     public String getNik() { return nik; }
     }
 ```
-<img width="182" height="192" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/6ab7b418-007c-4cb3-a5fb-b6c4ec7425b3" />
-<img width="182" height="192" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/6e4f1506-e87d-407a-a5d8-a4a70a88a918" />
 
 **Kesimpulan:**
 > ✏️ Enkapsulasi diterapkan pada seluruh kelas entitas (model) dengan membungkus atribut menggunakan kontrol akses private dan menyediakan metode getter untuk membaca data dengan aman.
