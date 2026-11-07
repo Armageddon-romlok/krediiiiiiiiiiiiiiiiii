@@ -75,13 +75,13 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
 
 #### 📁 Contoh 1: `AkunData.java`
 > ✏️Atribut data akun disembunyikan menggunakan modifier private sehingga tidak dapat diubah sembarangan dari luar kelas, dan hanya bisa diakses melalui fungsi getter.
-```
+
+>```
     public class AkunData {
     private String userId;
     private String email;
     private String nama;
     private String role;
-
     // Constructor & Getter methods
     public String getUserId() { return userId; }
     public String getEmail() { return email; }
