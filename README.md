@@ -74,7 +74,9 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
 >Encapsulation, Inheritance, Abstraction, Polymorphism, dan Interface. 
 
 #### 📁 Contoh 1: `AkunData.java`
-> ✏️ public class AkunData {
+> ✏️
+
+    public class AkunData {
     private String userId;
     private String email;
     private String nama;
