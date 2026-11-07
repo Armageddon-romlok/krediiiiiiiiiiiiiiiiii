@@ -154,38 +154,24 @@ Struktur pewarisan pada package Model dapat digambarkan sebagai berikut:
 **Konsep:**
 > ✏️ Abstraksi digunakan untuk menyembunyikan detail kompleks, hanya menampilkan bagian penting kepada pengguna melalui kelas abstrak atau method abstrak.
 
-#### 📁 Contoh 1: `TellerView.java`
+#### 📁 Contoh 1: `AutentikasiDAO.java`
 
 ```java
-DefaultTableModel model = new DefaultTableModel() {
-    @Override
-    public boolean isCellEditable(int row, int column) {
-        return false;
-    }
-};
+public User login(String email, String password) {
+        User user = null;
+        String query = "SELECT * FROM akun WHERE email = ? AND password = ?";
 ```
 
-> ✏️ Pada kode tersebut, program membuat objek DefaultTableModel dengan implementasi ulang method isCellEditable(). Method tersebut secara bawaan digunakan untuk menentukan apakah suatu sel tabel dapat diedit.
-
-Dengan melakukan overriding dan mengembalikan nilai false, seluruh sel pada tabel tidak dapat diedit oleh pengguna. Ini merupakan contoh method overriding karena method dari kelas induk diberikan implementasi yang berbeda pada kelas turunannya.
+> ✏️ Kelas AutentikasiDAO menyembunyikan detail kueri SQL mentah, pengelolaan PreparedStatement, dan penanganan exception database dari lapisan View atau Proses. Lapisan lain cukup memanggil metode login(email, password) tanpa harus tahu mekanisme penarikan data dan struktur SQL di balik layar.
 
 
 #### 📁 Contoh 2: `Koneksi.java`
 
 ```java
-package com.mycompany.caps_creedy.database;
-
-import java.sql.*;
-
-public class Koneksi {
-    private Koneksi() {}
-    
-    // Mengabstraksi detail koneksi database JDBC
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(
-            System.getProperty("creedy.db.url", "jdbc:mysql://127.0.0.1:3306/pa_creedy?connectTimeout=5000&socketTimeout=15000"),
-            System.getProperty("creedy.db.user", "root"), System.getProperty("creedy.db.password", ""));
-    }
+public static Connection getConnection() throws SQLException {
+    return DriverManager.getConnection(
+        System.getProperty("creedy.db.url", "jdbc:mysql://127.0.0.1:3306/pa_creedy?connectTimeout=5000&socketTimeout=15000"),
+        System.getProperty("creedy.db.user", "root"), System.getProperty("creedy.db.password", ""));
 }
 ```
 
@@ -199,16 +185,32 @@ public class Koneksi {
 ### 7.4 Polymorphism (Polimorfisme)
 
 **Konsep:**
-> ✏️ *Isi: penjelasan singkat konsep.*
+> ✏️ Polimorfisme memungkinkan method dengan nama yang sama memiliki perilaku berbeda tergantung pada objek yang memanggilnya.
 
-#### 📁 Contoh 1: Method Overriding pada `NamaClass.java`
-> ✏️ *Isi: potongan kode dan penjelasan penerapannya.*
+#### 📁 Contoh 1: Method Overriding pada `TellerView.java`
 
-#### 📁 Contoh 2: Method Overloading / Dynamic Dispatch pada `NamaClass.java`
-> ✏️ *Isi: potongan kode dan penjelasan.*
+```java
+@Override
+public boolean isCellEditable(int row, int column) {
+    return false;
+}
+```
+
+> ✏️ Method isCellEditable() pada DefaultTableModel di-override agar semua sel tabel tidak bisa diedit.
+
+#### 📁 Contoh 2: Method Overloading / Dynamic Dispatch pada `TellerView1_2.java`
+
+
+```java
+@Override
+public boolean isCellEditable(int row, int column) {
+    return false;
+}
+```
+> ✏️ Method isCellEditable() di-override untuk mencegah pengguna mengubah data rekening secara langsung melalui tabel.
 
 **Kesimpulan:**
-> ✏️ *Isi: ringkasan penerapan polimorfisme pada program.*
+> ✏️ Penerapan polimorfisme pada kedua file ditunjukkan melalui Method Overriding pada method isCellEditable(), yang digunakan untuk membuat tabel data nasabah dan rekening hanya dapat menampilkan data tanpa bisa diedit secara langsung.
 
 ---
 
@@ -216,9 +218,9 @@ public class Koneksi {
 
 | Pilar OOP | Class / File yang Menerapkan | Keterangan |
 |---|---|---|
-| Encapsulation | | |
-| Inheritance | | |
-| Abstraction | | |
-| Polymorphism | | |
+| Encapsulation | `AkunData.java`, `User.java`, `Nasabah.java`, `Pegawai.java` | Membungkus atribut data menggunakan modifier `private` dan menyediakan fungsi `getter`/`setter` untuk mengontrol akses dan menjaga keamanan data entitas. |
+| Inheritance | `Nasabah.java`, `Pegawai.java` (meng-extends `User.java`) | Mewarisi atribut umum dan fungsi autentikasi dasar dari *superclass* `User` ke *subclass* terkait agar struktur kode lebih rapi dan *reusable*. |
+| Abstraction | `Koneksi.java`, `AutentikasiDAO.java` (dan kelas DAO lainnya) | Menyembunyikan kompleksitas konfigurasi koneksi JDBC, kredensial database, serta detail kueri SQL mentah dari lapisan View atau Proses. |
+| Polymorphism | `TellerView.java`, `TellerView1_2.java` | Menggunakan *Method Overriding* pada method `isCellEditable()` untuk mengubah perilaku komponen tabel GUI sehingga data hanya dapat dibaca (*read-only*). |
 
 ---
