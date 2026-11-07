@@ -87,7 +87,7 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
     public String getEmail() { return email; }
     public String getNama() { return nama; }
     public String getRole() { return role; }
-}
+    }
 
 #### 📁 Contoh 2: `NamaClass.java`
 > ✏️ *Isi: potongan kode dan penjelasan.*
