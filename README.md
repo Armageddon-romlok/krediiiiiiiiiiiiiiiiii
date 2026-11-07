@@ -145,23 +145,54 @@ Struktur pewarisan pada package Model dapat digambarkan sebagai berikut:
 
 
 **Kesimpulan:**
-> ✏️ *Isi: ringkasan penerapan inheritance pada program.*
+> ✏️ Inheritance berhasil diterapkan untuk memusatkan atribut umum pengguna ke dalam kelas induk User, membuat kelas turunan (Nasabah dan Pegawai) lebih bersih dan spesifik.
 
 ---
 
 ### 7.3 Abstraction (Abstraksi)
 
 **Konsep:**
-> ✏️ *Isi: penjelasan singkat konsep.*
+> ✏️ Abstraksi digunakan untuk menyembunyikan detail kompleks, hanya menampilkan bagian penting kepada pengguna melalui kelas abstrak atau method abstrak.
 
-#### 📁 Contoh 1: `NamaClass.java` / `NamaInterface.java`
-> ✏️ *Isi: potongan kode (abstract class / interface) dan penjelasan penerapannya.*
+#### 📁 Contoh 1: `TellerView.java`
 
-#### 📁 Contoh 2: `NamaClass.java`
-> ✏️ *Isi: potongan kode dan penjelasan.*
+```java
+DefaultTableModel model = new DefaultTableModel() {
+    @Override
+    public boolean isCellEditable(int row, int column) {
+        return false;
+    }
+};
+```
+
+> ✏️ Pada kode tersebut, program membuat objek DefaultTableModel dengan implementasi ulang method isCellEditable(). Method tersebut secara bawaan digunakan untuk menentukan apakah suatu sel tabel dapat diedit.
+
+Dengan melakukan overriding dan mengembalikan nilai false, seluruh sel pada tabel tidak dapat diedit oleh pengguna. Ini merupakan contoh method overriding karena method dari kelas induk diberikan implementasi yang berbeda pada kelas turunannya.
+
+
+#### 📁 Contoh 2: `Koneksi.java`
+
+```java
+package com.mycompany.caps_creedy.database;
+
+import java.sql.*;
+
+public class Koneksi {
+    private Koneksi() {}
+    
+    // Mengabstraksi detail koneksi database JDBC
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(
+            System.getProperty("creedy.db.url", "jdbc:mysql://127.0.0.1:3306/pa_creedy?connectTimeout=5000&socketTimeout=15000"),
+            System.getProperty("creedy.db.user", "root"), System.getProperty("creedy.db.password", ""));
+    }
+}
+```
+
+> ✏️ Kelas Koneksi menyembunyikan detail URL database, kredensial user, dan proses pemanggilan DriverManager dari kelas-kelas lain (seperti DAO). Kelas lain cukup memanggil metode getConnection() tanpa harus tahu mekanisme koneksi JDBC di balik layar.
 
 **Kesimpulan:**
-> ✏️ *Isi: ringkasan penerapan abstraksi pada program.*
+> ✏️ *Kelas DAO mengabstraksi eksekusi query SQL yang rumit (PreparedStatement, penanganan eksepsi database) sehingga kelas antarmuka (View) atau Controller hanya perlu memanggil fungsi sederhana seperti simpanData() atau tarikTunai().
 
 ---
 
