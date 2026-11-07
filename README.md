@@ -75,7 +75,6 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
 
 #### 📁 Contoh 1: `AkunData.java`
 > ✏️Atribut data akun disembunyikan menggunakan modifier private sehingga tidak dapat diubah sembarangan dari luar kelas, dan hanya bisa diakses melalui fungsi getter.
-
 ```java
     public class AkunData {
     private String userId;
@@ -89,9 +88,9 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
     public String getRole() { return role; }
     }
 ```
+
 #### 📁 Contoh 2: `User.java`
 > ✏️ Atribut kredensial dan identitas pengguna seperti password, NIK, dan NIP dienkapsulasi dengan tingkat akses private untuk menjaga keamanan data sensitif aplikasi dari manipulasi luar.
-
 ```java
     public class User {
     private String idUser;
@@ -105,6 +104,9 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
     public String getNik() { return nik; }
     }
 ```
+<img width="182" height="192" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/6ab7b418-007c-4cb3-a5fb-b6c4ec7425b3" />
+<img width="182" height="192" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/6e4f1506-e87d-407a-a5d8-a4a70a88a918" />
+
 **Kesimpulan:**
 > ✏️ Enkapsulasi diterapkan pada seluruh kelas entitas (model) dengan membungkus atribut menggunakan kontrol akses private dan menyediakan metode getter untuk membaca data dengan aman.
 
@@ -113,16 +115,34 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
 ### 7.2 Inheritance (Pewarisan)
 
 **Konsep:**
-> ✏️ *Isi: penjelasan singkat konsep.*
+> ✏️ Mewarisi atribut dan method dari kelas induk agar bisa digunakan ulang oleh kelas turunan.
 
 #### 📁 Contoh 1: `NamaClass.java`
-> ✏️ *Isi: potongan kode dan penjelasan penerapannya.*
+> ✏️ Kelas Nasabah mewarisi properti dasar dari kelas induk User menggunakan kata kunci extends, sehingga atribut autentikasi umum tidak perlu ditulis ulang.
+```java
+public class Nasabah extends User {
+    private String noRekening;
+    private double saldo;
+    // Mewarisi atribut idUser, email, password, dll dari User
+}
+```
 
-#### 📁 Contoh 2: `NamaClass.java`
-> ✏️ *Isi: potongan kode dan penjelasan.*
+#### 📁 Contoh 2: `Pegawai.java`
+> ✏️ Kelas Pegawai juga menggunakan pewarisan dari kelas induk User untuk menangani pengelolaan data internal pegawai (seperti Teller atau Petugas Kredit).
+```java
+public class Pegawai extends User {
+    private String nipPegawai;
+    private String jabatan;
+    // Mewarisi fungsi login/autentikasi dari User
+}
+```
 
 #### 🌳 Hierarki Pewarisan
-> ✏️ *Isi: diagram atau gambar hierarki class (boleh memakai Mermaid `classDiagram`).*
+
+Struktur pewarisan pada package Model dapat digambarkan sebagai berikut:
+<img width="182" height="192" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/dc4b1f48-b90c-4970-8db1-871b79482a56" />
+> ✏️ Kelas User bertindak sebagai kelas induk (superclass) yang berisi atribut umum dan autentikasi dasar untuk seluruh jenis pengguna sistem, sedangkan kelas Nasabah dan Pegawai adalah kelas turunan (subclass) yang memperluas fungsionalitasnya dengan atribut spesifik masing-masing.
+
 
 **Kesimpulan:**
 > ✏️ *Isi: ringkasan penerapan inheritance pada program.*
