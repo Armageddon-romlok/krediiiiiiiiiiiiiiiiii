@@ -1,11 +1,7 @@
 ## 6. 🗂️ Struktur Folder / Package
 
 ### 6.1 Struktur Folder Proyek
-
-> ✏️ <img width="404" height="519" alt="{BED5FD87-FF3F-4053-8BC0-2C43301DE686}" src="https://github.com/user-attachments/assets/78e8ee57-0c82-411c-a1da-de238eb27fc3" />
-
-
-
+<img width="404" height="519" alt="{BED5FD87-FF3F-4053-8BC0-2C43301DE686}" src="https://github.com/user-attachments/assets/78e8ee57-0c82-411c-a1da-de238eb27fc3" />
 
 
 ### 6.2 Penjelasan Package
