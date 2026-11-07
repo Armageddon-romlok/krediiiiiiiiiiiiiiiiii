@@ -74,7 +74,7 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
 >Encapsulation, Inheritance, Abstraction, Polymorphism, dan Interface. 
 
 #### 📁 Contoh 1: `AkunData.java`
-> ✏️
+> ✏️Atribut data akun disembunyikan menggunakan modifier private sehingga tidak dapat diubah sembarangan dari luar kelas, dan hanya bisa diakses melalui fungsi getter.
 
     public class AkunData {
     private String userId;
@@ -89,11 +89,23 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
     public String getRole() { return role; }
     }
 
-#### 📁 Contoh 2: `NamaClass.java`
-> ✏️ *Isi: potongan kode dan penjelasan.*
+#### 📁 Contoh 2: `User.java`
+> ✏️ Atribut kredensial dan identitas pengguna seperti password, NIK, dan NIP dienkapsulasi dengan tingkat akses private untuk menjaga keamanan data sensitif aplikasi dari manipulasi luar.
+
+    public class User {
+    private String idUser;
+    private String email;
+    private String password;
+    private String nik;
+    private String nip;
+
+    public String getPassword() { return password; }
+    public String getEmail() { return email; }
+    public String getNik() { return nik; }
+    }
 
 **Kesimpulan:**
-> ✏️ *Isi: ringkasan penerapan enkapsulasi pada program.*
+> ✏️ Enkapsulasi diterapkan pada seluruh kelas entitas (model) dengan membungkus atribut menggunakan kontrol akses private dan menyediakan metode getter untuk membaca data dengan aman.
 
 ---
 
