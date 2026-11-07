@@ -92,6 +92,7 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
 #### 📁 Contoh 2: `User.java`
 > ✏️ Atribut kredensial dan identitas pengguna seperti password, NIK, dan NIP dienkapsulasi dengan tingkat akses private untuk menjaga keamanan data sensitif aplikasi dari manipulasi luar.
 
+```java
     public class User {
     private String idUser;
     private String email;
@@ -103,7 +104,7 @@ Alur kerja: User menekan tombol di View -> memicu fungsi di Proses -> Proses mem
     public String getEmail() { return email; }
     public String getNik() { return nik; }
     }
-
+```
 **Kesimpulan:**
 > ✏️ Enkapsulasi diterapkan pada seluruh kelas entitas (model) dengan membungkus atribut menggunakan kontrol akses private dan menyediakan metode getter untuk membaca data dengan aman.
 
