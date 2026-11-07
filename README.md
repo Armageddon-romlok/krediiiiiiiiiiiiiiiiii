@@ -138,7 +138,9 @@ public class Pegawai extends User {
 #### 🌳 Hierarki Pewarisan
 
 Struktur pewarisan pada package Model dapat digambarkan sebagai berikut:
+
 <img width="182" height="192" alt="Untitled Diagram drawio" src="https://github.com/user-attachments/assets/dc4b1f48-b90c-4970-8db1-871b79482a56" />
+
 > ✏️ Kelas User bertindak sebagai kelas induk (superclass) yang berisi atribut umum dan autentikasi dasar untuk seluruh jenis pengguna sistem, sedangkan kelas Nasabah dan Pegawai adalah kelas turunan (subclass) yang memperluas fungsionalitasnya dengan atribut spesifik masing-masing.
 
 
